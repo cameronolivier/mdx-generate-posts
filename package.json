@@ -1,0 +1,35 @@
+{
+  "name": "mdx-generate-posts",
+  "version": "1.0.0",
+  "description": "A CLI utility to generate MDX files from a list of data.",
+  "main": "index.js",
+  "scripts": {
+    "init": "chmod +x index.js && npm link"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cameronolivier/mdx-generate-posts.git"
+  },
+  "keywords": [
+    "mdx",
+    "markdown",
+    "csv",
+    "cli",
+    "node"
+  ],
+  "author": "cameronolivier@gmail.com",
+  "license": "MIT",
+  "bin": {
+    "mkmdx": "index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/cameronolivier/mdx-generate-posts/issues"
+  },
+  "homepage": "https://github.com/cameronolivier/mdx-generate-posts#readme",
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "fs-extra": "^11.1.1",
+    "gray-matter": "^4.0.3",
+    "inquirer": "^9.2.8"
+  }
+}
