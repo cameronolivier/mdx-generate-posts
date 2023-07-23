@@ -1,4 +1,7 @@
-const inquirer = require('inquirer');
+#!/usr/bin/env node
+
+import('inquirer').then(async (inquirerModule) => {
+  const inquirer = inquirerModule.default;
 const csv = require('csv-parser');
 const fs = require('fs-extra');
 const matter = require('gray-matter');
@@ -35,7 +38,13 @@ async function run() {
     .on('data', (row) => rows.push(row))
     .on('end', () => {
       rows.forEach((row, idx) => {
-        const fileName = `${destination}/${idx + 1}.mdx`;
+        const slug = row.slug;
+        const fileName = `${destination}/${slug || idx + 1}.mdx`;
+
+        if (row.slug) {
+          delete row.slug; // This removes the slug field from the row
+        }
+        
         const content = matter.stringify('', row);
         fs.outputFile(fileName, content);
       });
@@ -44,3 +53,4 @@ async function run() {
 }
 
 run();
+});
